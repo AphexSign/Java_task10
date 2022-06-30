@@ -1,9 +1,8 @@
 //        Написать метод, который читает текстовый файл и возвращает его в виде списка строк.
-package N1_ReadtoString;
+package ZZ_N1_ReadtoString;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ReadtoStrings {

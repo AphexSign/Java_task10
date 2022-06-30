@@ -1,5 +1,5 @@
 //        Написать метод, который записывает в файл строку, переданную параметром.
-package N2_StringToFile;
+package ZZ_N2_StringToFile;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -24,7 +24,7 @@ public class N2_StrToFile {
         final String sp = System.getProperty("line.separator");
 
         for (int i = 0; i < value.size(); i++) {
-            writer.write(value.get(i) + sp);
+            writer.write(value.get(i));
         }
         writer.flush();
         writer.close();

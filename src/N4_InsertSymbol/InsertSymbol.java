@@ -4,18 +4,19 @@
 
 package N4_InsertSymbol;
 
-import N1_ReadtoString.ReadtoStrings;
-import N2_StringToFile.N2_StrToFile;
+import N1_BisReadStrings.BisReadStr;
+import N2_BosWriteStrings.BosWriteStrings;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class InsertSymbol {
 
     public static void insertSymbol(File file) throws IOException {
         //Читает и заносит файлы в ArrayList
-        var arr = ReadtoStrings.readToString(file);
+        ArrayList<String> arr = BisReadStr.fileToList(file);
+
         //Обработка каждой строки, с заменой всех элементов, кроме чисел и букв
 
         for (int i = 0; i < arr.size(); i++) {
@@ -34,11 +35,11 @@ public class InsertSymbol {
             //Перезаписываем в элемент списка наш сконверченный массив символов
             arr.set(i, new String(charArray));
         }
+
         //Передаем наш список на запись в файл
-        N2_StrToFile.strToFile(file, arr);
+        BosWriteStrings.bosWriteStrings(file, arr);
     }
 
-    ;
 
     public static void main(String[] args) throws IOException {
         String filepath1 = "F:\\JavaPrj\\txt5.txt";

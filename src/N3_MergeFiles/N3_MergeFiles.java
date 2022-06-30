@@ -2,29 +2,36 @@
 
 package N3_MergeFiles;//
 
-import N1_ReadtoString.ReadtoStrings;
-import N2_StringToFile.N2_StrToFile;
+import N1_BisReadStrings.BisReadStr;
+import N2_BosWriteStrings.BosWriteStrings;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class N3_MergeFiles {
 
     public static void merge(File file1, File file2) throws IOException {
 
         //Из двух файлов заносим строки в списки. Пользуемся процедурой из первого задания
-        var arr1 = ReadtoStrings.readToString(file1);
-        var arr2 = ReadtoStrings.readToString(file2);
+        ArrayList<String> arr1 = BisReadStr.fileToList(file1);
+        ArrayList<String> arr2 = BisReadStr.fileToList(file2);
+
         String filepath3 = file1.getName();
         //Даем имя новому файлу, добавляя префикс _merged
         filepath3 = file1.getParent() + "\\" + filepath3.replace(".", "_merged.");
         //Выделяем место в памяти для нового файла
         File file3 = new File(filepath3);
         //Cклеиваем списки в один большой
+
+        final String sp = System.getProperty("line.separator");
+        //Склейку производим с новой строки
+        arr1.add(sp);
         arr1.addAll(arr2);
+
         //Передаем склеянный список в новый файл
-        N2_StrToFile.strToFile(file3, arr1);
+        BosWriteStrings.bosWriteStrings(file3, arr1);
+
     }
 
     public static void main(String[] args) throws IOException {

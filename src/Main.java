@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
-        FileInputStream fileInputStream = new FileInputStream("N1_ReadtoString/file1.txt");
+        FileInputStream fileInputStream = new FileInputStream("ZZ_N1_ReadtoString/file1.txt");
 
         int i;
 
